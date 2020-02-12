@@ -1,0 +1,70 @@
+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+/dts-v1/;
+
+#include <dt-bindings/gpio/gpio.h>
+#include <dt-bindings/input/input.h>
+
+#include "qca9557.dtsi"
+
+/ {
+	compatible = "mikrotik,rb960", "qca,qca9557";
+	model = "Mikrotik RB960";
+
+	chosen {
+		bootargs = "console=ttyS0,115200n8";
+	};
+};
+
+&spi {
+	status = "okay";
+
+	num-cs = <1>;
+
+	flash@0 {
+		compatible = "jedec,spi-nor";
+		reg = <0>;
+		spi-max-frequency = <25000000>;
+
+		partitions {
+			compatible = "fixed-partitions";
+			#address-cells = <1>;
+			#size-cells = <1>;
+
+			partition@0 {
+				label = "RouterBoot";
+				reg = <0x000000 0x020000>;
+				read-only;
+
+				partition@0 {
+					label = "bootloader1";
+					reg = <0x0 0xe000>;
+					read-only;
+				}
+
+				hard_config: partition@e000 {
+					label = "hard_config";
+					reg = <0xe000 0x1000>;
+					read-only;
+				}
+
+				soft_config: partition@1f000 {
+					label = "soft_config";
+					reg = <0x1f000 0x1000>;
+					read-only;
+				}
+
+			};
+
+			partition@20000 {
+				compatible = "mikrotik,minor";
+				label = "firmware";
+				reg = <0x020000 0xfe0000>;
+			};
+
+		};
+	};
+};
+
+&uart {
+	status = "okay";
+};

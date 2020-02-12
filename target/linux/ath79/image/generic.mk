@@ -752,6 +752,17 @@ define Device/mikrotik_routerboard-wap-g-5hact2hnd
 endef
 TARGET_DEVICES += mikrotik_routerboard-wap-g-5hact2hnd
 
+define Device/mikrotik_routerboard-960
+  $(Device/mikrotik)
+  SOC := qca9557
+  DEVICE_MODEL := RouterBOARD 960
+  IMAGE_SIZE := 16256k
+  IMAGE/sysupgrade.bin := append-kernel | kernel2minor -s 1024 -e | \
+	pad-to $$$$(BLOCKSIZE) | append-rootfs | pad-rootfs | \
+	append-metadata | check-size $$$$(IMAGE_SIZE)
+endef
+TARGET_DEVICES += mikrotik_routerboard-960
+
 define Device/nec_wg1200cr
   SOC := qca9563
   DEVICE_VENDOR := NEC
