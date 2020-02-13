@@ -39,19 +39,19 @@
 					label = "bootloader1";
 					reg = <0x0 0xe000>;
 					read-only;
-				}
+				};
 
 				hard_config: partition@e000 {
 					label = "hard_config";
 					reg = <0xe000 0x1000>;
 					read-only;
-				}
+				};
 
 				soft_config: partition@1f000 {
 					label = "soft_config";
 					reg = <0x1f000 0x1000>;
 					read-only;
-				}
+				};
 
 			};
 
