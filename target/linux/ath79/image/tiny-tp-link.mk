@@ -223,6 +223,17 @@ define Device/tplink_tl-wa901nd-v5
 endef
 TARGET_DEVICES += tplink_tl-wa901nd-v5
 
+define Device/tplink_tl-wr1043nd-v1
+  $(Device/tplink-8m)
+  SOC := ar9132
+  DEVICE_MODEL := TL-WR1043N/ND
+  DEVICE_VARIANT := v1
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ledtrig-usbport
+  TPLINK_HWID := 0x10430001
+  SUPPORTED_DEVICES += tl-wr1043nd
+endef
+TARGET_DEVICES += tplink_tl-wr1043nd-v1
+
 define Device/tplink_tl-wr703n
   $(Device/tplink-4mlzma)
   SOC := ar9331
@@ -242,6 +253,29 @@ define Device/tplink_tl-wr740n-v1
   SUPPORTED_DEVICES += tl-wr741nd
 endef
 TARGET_DEVICES += tplink_tl-wr740n-v1
+
+define Device/tplink_tl-wr710n-v1
+  $(Device/tplink-8mlzma)
+  SOC := ar9331
+  DEVICE_MODEL := TL-WR710N
+  DEVICE_VARIANT := v1
+  DEVICE_PACKAGES := kmod-usb-chipidea2 kmod-usb-ledtrig-usbport
+  TPLINK_HWID := 0x07100001
+  SUPPORTED_DEVICES += tl-wr710n
+endef
+TARGET_DEVICES += tplink_tl-wr710n-v1
+
+define Device/tplink_tl-wr710n-v2.1
+  $(Device/tplink-8mlzma)
+  SOC := ar9331
+  DEVICE_MODEL := TL-WR710N
+  DEVICE_VARIANT := v2.1
+  DEVICE_PACKAGES := kmod-usb-chipidea2 kmod-usb-ledtrig-usbport
+  TPLINK_HWID := 0x07100002
+  TPLINK_HWREV := 0x2
+  SUPPORTED_DEVICES += tl-wr710n
+endef
+TARGET_DEVICES += tplink_tl-wr710n-v2.1
 
 define Device/tplink_tl-wr740n-v3
   $(Device/tplink-4m)
@@ -327,6 +361,16 @@ define Device/tplink_tl-wr802n-v2
 endef
 TARGET_DEVICES += tplink_tl-wr802n-v2
 
+define Device/tplink_tl-wr810n-v2
+  $(Device/tplink-8mlzma)
+  SOC := qca9533
+  DEVICE_MODEL := TL-WR810N
+  DEVICE_VARIANT := v2
+  TPLINK_HWID := 0x8100002
+  SUPPORTED_DEVICES += tl-wr810n-v2
+endef
+TARGET_DEVICES += tplink_tl-wr810n-v2
+
 define Device/tplink_tl-wr841-v5
   $(Device/tplink-4m)
   SOC := ar7240
@@ -402,6 +446,28 @@ define Device/tplink_tl-wr841-v12
   IMAGE/factory-eu.bin := tplink-v1-image factory -C EU
 endef
 TARGET_DEVICES += tplink_tl-wr841-v12
+
+define Device/tplink_tl-wr842n-v1
+  $(Device/tplink-8m)
+  SOC := ar7241
+  DEVICE_MODEL := TL-WR842N/ND
+  DEVICE_VARIANT := v1
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ledtrig-usbport
+  TPLINK_HWID := 0x8420001
+  SUPPORTED_DEVICES += tl-mr3420
+endef
+TARGET_DEVICES += tplink_tl-wr842n-v1
+
+define Device/tplink_tl-wr842n-v2
+  $(Device/tplink-8mlzma)
+  SOC := ar9341
+  DEVICE_MODEL := TL-WR842N/ND
+  DEVICE_VARIANT := v2
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ledtrig-usbport
+  TPLINK_HWID := 0x8420002
+  SUPPORTED_DEVICES += tl-wr842n-v2
+endef
+TARGET_DEVICES += tplink_tl-wr842n-v2
 
 define Device/tplink_tl-wr940n-v3
   $(Device/tplink-4mlzma)

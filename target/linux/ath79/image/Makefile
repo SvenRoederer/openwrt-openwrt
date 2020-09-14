@@ -90,6 +90,7 @@ endif
 ifeq ($(SUBTARGET),tiny)
 include tiny-netgear.mk
 include tiny-tp-link.mk
+include tiny-ubnt.mk
 endif
 
 $(eval $(call BuildImage))
