@@ -74,7 +74,6 @@ define Device/pqi_air-pen
   SOC := ar9330
   DEVICE_VENDOR := PQI
   DEVICE_MODEL := Air-Pen
-  DEVICE_PACKAGES := kmod-usb2
   IMAGE_SIZE := 7680k
   SUPPORTED_DEVICES += pqi-air-pen
 endef

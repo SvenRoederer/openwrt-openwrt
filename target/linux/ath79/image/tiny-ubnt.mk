@@ -31,7 +31,6 @@ endef
 # UBNT_VERSION e.g. one of (6.0.0, 8.5.3)
 define Device/ubnt
   DEVICE_VENDOR := Ubiquiti
-  DEVICE_PACKAGES := kmod-usb2
   IMAGES += factory.bin
   IMAGE/factory.bin := append-kernel | pad-to $$$$(BLOCKSIZE) | \
 	append-rootfs | pad-rootfs | check-size | mkubntimage-split
@@ -40,7 +39,6 @@ endef
 define Device/ubnt-xm
   $(Device/ubnt)
   DEVICE_VARIANT := XM
-  DEVICE_PACKAGES += kmod-usb-ohci
   IMAGE_SIZE := 7448k
   UBNT_BOARD := XM
   UBNT_CHIP := ar7240
